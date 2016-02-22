@@ -35,6 +35,21 @@ extension EditStep: CustomDebugStringConvertible {
 }
 
 public func editSteps<T>(source: [T], _ destination: [T], compare: (T, T) -> Bool) -> [EditStep<T>] {
+
+    // Return all insertions if the source is empty.
+    if source.isEmpty {
+        return destination.enumerate().map({ index, value in
+            .Insert(index, value)
+        })
+    }
+
+    // Return all deletions if the destination is empty.
+    if destination.isEmpty {
+        return source.enumerate().map({ index, _ in
+            .Delete(index)
+        })
+    }
+
     var matrix = Matrix<[EditStep<T>]>(
         rows: source.count + 1,
         columns: destination.count + 1,
