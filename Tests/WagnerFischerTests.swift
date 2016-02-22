@@ -18,6 +18,22 @@ class WagnerFischer_OSXTests: XCTestCase {
         XCTAssertEqual(applyEditSteps(source, editSteps: steps)!, destination)
     }
 
+    func testEmptySource() {
+        let source = ""
+        let destination = "Sam Soffes"
+
+        let steps = editSteps(source, destination)
+        XCTAssertEqual(applyEditSteps(source, editSteps: steps)!, destination)
+    }
+
+    func testEmptyDestination() {
+        let source = "Caleb Davenport"
+        let destination = ""
+
+        let steps = editSteps(source, destination)
+        XCTAssertEqual(applyEditSteps(source, editSteps: steps)!, destination)
+    }
+
     func testInvalidEditSteps() {
         let source = "Caleb Davenport"
         let destination = "Sam Soffes"
