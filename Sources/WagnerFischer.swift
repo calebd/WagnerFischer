@@ -39,14 +39,14 @@ public func editSteps<T>(source: [T], _ destination: [T], compare: (T, T) -> Boo
     // Return all insertions if the source is empty.
     if source.isEmpty {
         return destination.enumerate().map({ index, value in
-            .Insert(index, value)
+            .Insert(location: index, value: value)
         })
     }
 
     // Return all deletions if the destination is empty.
     if destination.isEmpty {
         return (0..<destination.count).reverse().map({
-            .Delete($0)
+            .Delete(location: $0)
         })
     }
 
