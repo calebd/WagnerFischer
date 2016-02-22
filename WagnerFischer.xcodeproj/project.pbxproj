@@ -7,12 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21B891EE1C7B98B000D0C155 /* WagnerFischer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B891E41C7B98B000D0C155 /* WagnerFischer.framework */; };
+		21B891FB1C7B98D600D0C155 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A72F0E51C7B968B00F6BCA7 /* Helpers.swift */; };
+		21B891FC1C7B98D600D0C155 /* WagnerFischer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A72F0E71C7B969900F6BCA7 /* WagnerFischer.swift */; };
+		21B891FD1C7B98D800D0C155 /* WagnerFischer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A72F0DC1C7B963300F6BCA7 /* WagnerFischer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		21B892031C7B995700D0C155 /* WagnerFischerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B892001C7B994100D0C155 /* WagnerFischerTests.swift */; };
 		3A72F0DD1C7B963300F6BCA7 /* WagnerFischer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A72F0DC1C7B963300F6BCA7 /* WagnerFischer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3A72F0E61C7B968B00F6BCA7 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A72F0E51C7B968B00F6BCA7 /* Helpers.swift */; };
 		3A72F0E81C7B969900F6BCA7 /* WagnerFischer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A72F0E71C7B969900F6BCA7 /* WagnerFischer.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		21B891EF1C7B98B000D0C155 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A72F0D01C7B963300F6BCA7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 21B891E31C7B98B000D0C155;
+			remoteInfo = "WagnerFischer-OSX";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		21B891E41C7B98B000D0C155 /* WagnerFischer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WagnerFischer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		21B891ED1C7B98B000D0C155 /* WagnerFischerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WagnerFischerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		21B891FF1C7B994100D0C155 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21B892001C7B994100D0C155 /* WagnerFischerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WagnerFischerTests.swift; sourceTree = "<group>"; };
 		3A72F0D91C7B963300F6BCA7 /* WagnerFischer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WagnerFischer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A72F0DC1C7B963300F6BCA7 /* WagnerFischer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WagnerFischer.h; sourceTree = "<group>"; };
 		3A72F0DE1C7B963300F6BCA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -21,6 +40,21 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		21B891E01C7B98B000D0C155 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21B891EA1C7B98B000D0C155 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21B891EE1C7B98B000D0C155 /* WagnerFischer.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3A72F0D51C7B963300F6BCA7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -31,19 +65,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		21B891FE1C7B994100D0C155 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				21B891FF1C7B994100D0C155 /* Info.plist */,
+				21B892001C7B994100D0C155 /* WagnerFischerTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
 		3A72F0CF1C7B963300F6BCA7 = {
 			isa = PBXGroup;
 			children = (
 				3A72F0E41C7B968B00F6BCA7 /* Sources */,
 				3A72F0DB1C7B963300F6BCA7 /* WagnerFischer */,
+				21B891FE1C7B994100D0C155 /* Tests */,
 				3A72F0DA1C7B963300F6BCA7 /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		3A72F0DA1C7B963300F6BCA7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				3A72F0D91C7B963300F6BCA7 /* WagnerFischer.framework */,
+				21B891E41C7B98B000D0C155 /* WagnerFischer.framework */,
+				21B891ED1C7B98B000D0C155 /* WagnerFischerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -69,6 +116,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		21B891E11C7B98B000D0C155 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21B891FD1C7B98D800D0C155 /* WagnerFischer.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3A72F0D61C7B963300F6BCA7 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -80,9 +135,45 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		3A72F0D81C7B963300F6BCA7 /* WagnerFischer */ = {
+		21B891E31C7B98B000D0C155 /* WagnerFischer-OSX */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3A72F0E11C7B963300F6BCA7 /* Build configuration list for PBXNativeTarget "WagnerFischer" */;
+			buildConfigurationList = 21B891F51C7B98B000D0C155 /* Build configuration list for PBXNativeTarget "WagnerFischer-OSX" */;
+			buildPhases = (
+				21B891DF1C7B98B000D0C155 /* Sources */,
+				21B891E01C7B98B000D0C155 /* Frameworks */,
+				21B891E11C7B98B000D0C155 /* Headers */,
+				21B891E21C7B98B000D0C155 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "WagnerFischer-OSX";
+			productName = "WagnerFischer-OSX";
+			productReference = 21B891E41C7B98B000D0C155 /* WagnerFischer.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		21B891EC1C7B98B000D0C155 /* WagnerFischerTests-OSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 21B891F81C7B98B000D0C155 /* Build configuration list for PBXNativeTarget "WagnerFischerTests-OSX" */;
+			buildPhases = (
+				21B891E91C7B98B000D0C155 /* Sources */,
+				21B891EA1C7B98B000D0C155 /* Frameworks */,
+				21B891EB1C7B98B000D0C155 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				21B891F01C7B98B000D0C155 /* PBXTargetDependency */,
+			);
+			name = "WagnerFischerTests-OSX";
+			productName = "WagnerFischer-OSXTests";
+			productReference = 21B891ED1C7B98B000D0C155 /* WagnerFischerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3A72F0D81C7B963300F6BCA7 /* WagnerFischer-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A72F0E11C7B963300F6BCA7 /* Build configuration list for PBXNativeTarget "WagnerFischer-iOS" */;
 			buildPhases = (
 				3A72F0D41C7B963300F6BCA7 /* Sources */,
 				3A72F0D51C7B963300F6BCA7 /* Frameworks */,
@@ -93,7 +184,7 @@
 			);
 			dependencies = (
 			);
-			name = WagnerFischer;
+			name = "WagnerFischer-iOS";
 			productName = WagnerFischer;
 			productReference = 3A72F0D91C7B963300F6BCA7 /* WagnerFischer.framework */;
 			productType = "com.apple.product-type.framework";
@@ -104,9 +195,16 @@
 		3A72F0D01C7B963300F6BCA7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Caleb Davenport";
 				TargetAttributes = {
+					21B891E31C7B98B000D0C155 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					21B891EC1C7B98B000D0C155 = {
+						CreatedOnToolsVersion = 7.3;
+					};
 					3A72F0D81C7B963300F6BCA7 = {
 						CreatedOnToolsVersion = 7.2.1;
 					};
@@ -124,12 +222,28 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3A72F0D81C7B963300F6BCA7 /* WagnerFischer */,
+				3A72F0D81C7B963300F6BCA7 /* WagnerFischer-iOS */,
+				21B891E31C7B98B000D0C155 /* WagnerFischer-OSX */,
+				21B891EC1C7B98B000D0C155 /* WagnerFischerTests-OSX */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		21B891E21C7B98B000D0C155 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21B891EB1C7B98B000D0C155 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3A72F0D71C7B963300F6BCA7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -140,6 +254,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		21B891DF1C7B98B000D0C155 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21B891FC1C7B98D600D0C155 /* WagnerFischer.swift in Sources */,
+				21B891FB1C7B98D600D0C155 /* Helpers.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21B891E91C7B98B000D0C155 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21B892031C7B995700D0C155 /* WagnerFischerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3A72F0D41C7B963300F6BCA7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -151,7 +282,87 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		21B891F01C7B98B000D0C155 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 21B891E31C7B98B000D0C155 /* WagnerFischer-OSX */;
+			targetProxy = 21B891EF1C7B98B000D0C155 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		21B891F61C7B98B000D0C155 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = WagnerFischer/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.calebd.WagnerFischer;
+				PRODUCT_NAME = WagnerFischer;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		21B891F71C7B98B000D0C155 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = WagnerFischer/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.calebd.WagnerFischer;
+				PRODUCT_NAME = WagnerFischer;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		21B891F91C7B98B000D0C155 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.calebd.WagnerFischer.Tests;
+				PRODUCT_NAME = WagnerFischerTests;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		21B891FA1C7B98B000D0C155 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.calebd.WagnerFischer.Tests;
+				PRODUCT_NAME = WagnerFischerTests;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		3A72F0DF1C7B963300F6BCA7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -191,6 +402,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -234,6 +446,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -254,7 +467,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.calebd.WagnerFischer;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = WagnerFischer;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -270,7 +483,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.calebd.WagnerFischer;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = WagnerFischer;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -278,6 +491,22 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		21B891F51C7B98B000D0C155 /* Build configuration list for PBXNativeTarget "WagnerFischer-OSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21B891F61C7B98B000D0C155 /* Debug */,
+				21B891F71C7B98B000D0C155 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		21B891F81C7B98B000D0C155 /* Build configuration list for PBXNativeTarget "WagnerFischerTests-OSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21B891F91C7B98B000D0C155 /* Debug */,
+				21B891FA1C7B98B000D0C155 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		3A72F0D31C7B963300F6BCA7 /* Build configuration list for PBXProject "WagnerFischer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -287,7 +516,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3A72F0E11C7B963300F6BCA7 /* Build configuration list for PBXNativeTarget "WagnerFischer" */ = {
+		3A72F0E11C7B963300F6BCA7 /* Build configuration list for PBXNativeTarget "WagnerFischer-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3A72F0E21C7B963300F6BCA7 /* Debug */,
