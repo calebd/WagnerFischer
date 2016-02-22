@@ -500,6 +500,7 @@
 				21B891F71C7B98B000D0C155 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		21B891F81C7B98B000D0C155 /* Build configuration list for PBXNativeTarget "WagnerFischerTests-OSX" */ = {
 			isa = XCConfigurationList;
@@ -508,6 +509,7 @@
 				21B891FA1C7B98B000D0C155 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3A72F0D31C7B963300F6BCA7 /* Build configuration list for PBXProject "WagnerFischer" */ = {
 			isa = XCConfigurationList;
