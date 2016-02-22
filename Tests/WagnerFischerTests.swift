@@ -28,4 +28,8 @@ class WagnerFischer_OSXTests: XCTestCase {
         XCTAssertNil(applyEditSteps("", editSteps: [.Delete(location: 0)]))
         XCTAssertNil(applyEditSteps("", editSteps: [.Delete(location: 1)]))
     }
+
+    func testApplyToEmptySource() {
+        XCTAssertEqual(applyEditSteps("", editSteps: [.Insert(location: 0, value: "S".characters.first!)]), "S")
+    }
 }

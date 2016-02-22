@@ -93,14 +93,15 @@ public func applyEditSteps<T>(source: [T], editSteps: [EditStep<T>]) -> [T]? {
     var destination = source
 
     for step in editSteps {
-        guard step.location < destination.count else { return nil }
-
         switch step {
         case .Insert(let location, let value):
+            guard location <= destination.count else { return nil }
             destination.insert(value, atIndex: location)
         case .Delete(let location):
+            guard location < destination.count else { return nil }
             destination.removeAtIndex(location)
         case .Substitute(let location, let value):
+            guard location < destination.count else { return nil }
             destination.removeAtIndex(location)
             destination.insert(value, atIndex: location)
         }
