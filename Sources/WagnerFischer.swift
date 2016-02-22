@@ -26,7 +26,7 @@ extension EditStep: CustomDebugStringConvertible {
     }
 }
 
-func editSteps<T>(source: [T], _ destination: [T], compare: (T, T) -> Bool) -> [EditStep<T>] {
+public func editSteps<T>(source: [T], _ destination: [T], compare: (T, T) -> Bool) -> [EditStep<T>] {
     var matrix = Matrix<[EditStep<T>]>(
         rows: source.count + 1,
         columns: destination.count + 1,
@@ -61,22 +61,22 @@ func editSteps<T>(source: [T], _ destination: [T], compare: (T, T) -> Bool) -> [
     return matrix[source.count, destination.count]
 }
 
-func editSteps<T: Equatable>(source: [T], _ destination: [T]) -> [EditStep<T>] {
+public func editSteps<T: Equatable>(source: [T], _ destination: [T]) -> [EditStep<T>] {
     return editSteps(source, destination, compare: ==)
 }
 
-func editSteps(source: String, _ destination: String) -> [EditStep<Character>] {
+public func editSteps(source: String, _ destination: String) -> [EditStep<Character>] {
     return editSteps(Array(source.characters), Array(destination.characters))
 }
 
-func editDistance<T>(source: [T], _ destination: [T], compare: (T, T) -> Bool) -> Int {
+public func editDistance<T>(source: [T], _ destination: [T], compare: (T, T) -> Bool) -> Int {
     return editSteps(source, destination, compare: compare).count
 }
 
-func editDistance<T: Equatable>(source: [T], _ destination: [T]) -> Int {
+public func editDistance<T: Equatable>(source: [T], _ destination: [T]) -> Int {
     return editSteps(source, destination).count
 }
 
-func editDistance(source: String, _ destination: String) -> Int {
+public func editDistance(source: String, _ destination: String) -> Int {
     return editSteps(source, destination).count
 }
