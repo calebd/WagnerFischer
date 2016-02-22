@@ -11,6 +11,14 @@ public enum EditStep<Value> {
     case Insert(Int, Value)
     case Substitute(Int, Value)
     case Delete(Int)
+
+    public var location: Int {
+        switch self {
+        case .Insert(let location, _): return location
+        case .Substitute(let location, _): return location
+        case .Delete(let location): return location
+        }
+    }
 }
 
 extension EditStep: CustomDebugStringConvertible {
