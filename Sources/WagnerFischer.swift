@@ -8,9 +8,9 @@
 
 /// A single edit step.
 public enum EditStep<Value> {
-    case Insert(Int, Value)
-    case Substitute(Int, Value)
-    case Delete(Int)
+    case Insert(location: Int, value: Value)
+    case Substitute(location: Int, value: Value)
+    case Delete(location: Int)
 
     public var location: Int {
         switch self {
@@ -41,13 +41,13 @@ public func editSteps<T>(source: [T], _ destination: [T], compare: (T, T) -> Boo
         repeatedValue: [])
 
     for i in 1...source.count {
-        matrix[i, 0] = (0...i).map({ .Delete($0) })
+        matrix[i, 0] = (0...i).map({ .Delete(location: $0) })
     }
 
     for j in 1...destination.count {
         matrix[0, j] = (1...j).lazy.map({ $0 - 1 }).map({
             let destinationValue = destination[$0]
-            return EditStep.Insert($0, destinationValue)
+            return EditStep.Insert(location: $0, value: destinationValue)
         })
     }
 
@@ -58,9 +58,9 @@ public func editSteps<T>(source: [T], _ destination: [T], compare: (T, T) -> Boo
                 matrix[i, j] = matrix[i - 1, j - 1]
             }
             else {
-                let a = matrix[i - 1, j] + CollectionOfOne(.Delete(i - 1))
-                let b = matrix[i, j - 1] + CollectionOfOne(.Insert(j - 1, destinationValue))
-                let c = matrix[i - 1, j - 1] + CollectionOfOne(.Substitute(j - 1, destinationValue))
+                let a = matrix[i - 1, j] + CollectionOfOne(.Delete(location: i - 1))
+                let b = matrix[i, j - 1] + CollectionOfOne(.Insert(location: j - 1, value: destinationValue))
+                let c = matrix[i - 1, j - 1] + CollectionOfOne(.Substitute(location: j - 1, value: destinationValue))
                 matrix[i, j] = shortest(a, b, c)
             }
         }
