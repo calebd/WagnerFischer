@@ -51,8 +51,8 @@ public func editSteps<T>(source: [T], _ destination: [T], compare: (T, T) -> Boo
     }
 
     var matrix = Matrix<[EditStep<T>]>(
-        rows: source.count + 1,
-        columns: destination.count + 1,
+        numberOfRows: UInt(source.count + 1),
+        numberOfColumns: UInt(destination.count + 1),
         repeatedValue: [])
 
     for i in 1...source.count {
