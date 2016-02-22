@@ -38,14 +38,14 @@ public func editSteps<T>(source: [T], _ destination: [T], compare: (T, T) -> Boo
 
     // Return all insertions if the source is empty.
     if source.isEmpty {
-        return destination.lazy.enumerate().map({ index, value in
+        return destination.enumerate().map({ index, value in
             .Insert(index, value)
         })
     }
 
     // Return all deletions if the destination is empty.
     if destination.isEmpty {
-        return source.lazy.enumerate().map({ index, _ in
+        return source.enumerate().map({ index, _ in
             .Delete(index)
         })
     }
