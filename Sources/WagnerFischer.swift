@@ -80,3 +80,25 @@ public func editDistance<T: Equatable>(source: [T], _ destination: [T]) -> Int {
 public func editDistance(source: String, _ destination: String) -> Int {
     return editSteps(source, destination).count
 }
+
+public func applyEditSteps<T>(source: [T], editSteps: [EditStep<T>]) -> [T] {
+    var destination = source
+
+    for step in editSteps {
+        switch step {
+        case .Insert(let location, let value):
+            destination.insert(value, atIndex: location)
+        case .Delete(let location):
+            destination.removeAtIndex(location)
+        case .Substitute(let location, let value):
+            destination.removeAtIndex(location)
+            destination.insert(value, atIndex: location)
+        }
+    }
+
+    return destination
+}
+
+public func applyEditSteps(source: String, editSteps: [EditStep<Character>]) -> String {
+    return String(applyEditSteps(Array(source.characters), editSteps: editSteps))
+}
