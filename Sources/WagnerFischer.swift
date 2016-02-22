@@ -45,8 +45,8 @@ public func editSteps<T>(source: [T], _ destination: [T], compare: (T, T) -> Boo
 
     // Return all deletions if the destination is empty.
     if destination.isEmpty {
-        return source.enumerate().map({ index, _ in
-            .Delete(index)
+        return (0..<destination.count).reverse().map({
+            .Delete($0)
         })
     }
 
