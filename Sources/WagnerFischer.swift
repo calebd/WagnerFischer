@@ -89,16 +89,19 @@ public func editDistance(source: String, _ destination: String) -> Int {
     return editSteps(source, destination).count
 }
 
-public func applyEditSteps<T>(source: [T], editSteps: [EditStep<T>]) -> [T] {
+public func applyEditSteps<T>(source: [T], editSteps: [EditStep<T>]) -> [T]? {
     var destination = source
 
     for step in editSteps {
         switch step {
         case .Insert(let location, let value):
+            guard location <= destination.count else { return nil }
             destination.insert(value, atIndex: location)
         case .Delete(let location):
+            guard location < destination.count else { return nil }
             destination.removeAtIndex(location)
         case .Substitute(let location, let value):
+            guard location < destination.count else { return nil }
             destination.removeAtIndex(location)
             destination.insert(value, atIndex: location)
         }
@@ -107,6 +110,7 @@ public func applyEditSteps<T>(source: [T], editSteps: [EditStep<T>]) -> [T] {
     return destination
 }
 
-public func applyEditSteps(source: String, editSteps: [EditStep<Character>]) -> String {
-    return String(applyEditSteps(Array(source.characters), editSteps: editSteps))
+public func applyEditSteps(source: String, editSteps: [EditStep<Character>]) -> String? {
+    guard let characters = applyEditSteps(Array(source.characters), editSteps: editSteps) else { return nil }
+    return String(characters)
 }
