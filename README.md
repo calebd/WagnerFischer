@@ -24,6 +24,6 @@ An implementation of [Wagner-Fischer](https://en.wikipedia.org/wiki/Wagner–Fis
 
 "Edit distance" defines the smallest number of steps needed to go from one collection of elements to another.
 
-`editSteps("Caleb Davenport", "Sam Soffes")` will return `13`.
+`editDistance("Caleb Davenport", "Sam Soffes")` will return `13`.
 
 These examples use strings but `WagnerFischer` defines functions that can take any `[T]`.
