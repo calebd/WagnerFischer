@@ -38,16 +38,12 @@ public func editSteps<T>(source: [T], _ destination: [T], compare: (T, T) -> Boo
 
     // Return all insertions if the source is empty.
     if source.isEmpty {
-        return destination.enumerate().map({ index, value in
-            .Insert(location: index, value: value)
-        })
+        return destination.enumerate().map(EditStep.Insert)
     }
 
     // Return all deletions if the destination is empty.
     if destination.isEmpty {
-        return (0..<source.count).reverse().map({
-            .Delete(location: $0)
-        })
+        return (0..<source.count).reverse().map(EditStep.Delete)
     }
 
     var matrix = Matrix<[EditStep<T>]>(
@@ -56,7 +52,7 @@ public func editSteps<T>(source: [T], _ destination: [T], compare: (T, T) -> Boo
         repeatedValue: [])
 
     for i in 1...source.count {
-        matrix[i, 0] = (0...i).map({ .Delete(location: $0) })
+        matrix[i, 0] = (0...i).map(EditStep.Delete)
     }
 
     for j in 1...destination.count {
