@@ -9,7 +9,7 @@
 import XCTest
 import WagnerFischer
 
-class WagnerFischer_OSXTests: XCTestCase {
+class WagnerFischerTests: XCTestCase {
     func testStringEditSteps() {
         let source = "Caleb Davenport"
         let destination = "Sam Soffes"
@@ -51,5 +51,14 @@ class WagnerFischer_OSXTests: XCTestCase {
 
     func testApplyToEmptyDestination() {
         XCTAssertEqual(applyEditSteps("S", editSteps: [.Delete(location: 0)]), "")
+    }
+
+    func testPerformance() {
+        let source = "Food truck actually man braid, letterpress XOXO quinoa sartorial. Narwhal before they sold out mixtape next level, freegan yuccie stumptown pour-over try-hard lomo keffiyeh waistcoat sriracha selvage. Truffaut cray venmo ethical deep v freegan. Hashtag offal normcore schlitz cold-pressed, food truck"
+        let destination = "Bicycle rights paleo godard, tofu man braid green juice umami keffiyeh tattooed brunch hella. Williamsburg chartreuse butcher vinyl. Freegan thundercats quinoa roof party tote bag, actually schlitz +1 brooklyn yuccie vinyl. Listicle mumblecore occupy banh mi asymmetrical polaroid. Four loko viral pug"
+
+        measureBlock {
+            editSteps(source, destination)
+        }
     }
 }
