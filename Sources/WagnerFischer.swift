@@ -8,15 +8,15 @@
 
 /// A single edit step.
 public enum EditStep<Value> {
-    case Insert(location: Int, value: Value)
-    case Substitute(location: Int, value: Value)
-    case Delete(location: Int)
+    case insert(location: Int, value: Value)
+    case substitute(location: Int, value: Value)
+    case delete(location: Int)
 
     public var location: Int {
         switch self {
-        case .Insert(let location, _): return location
-        case .Substitute(let location, _): return location
-        case .Delete(let location): return location
+        case .insert(let location, _): return location
+        case .substitute(let location, _): return location
+        case .delete(let location): return location
         }
     }
 }
@@ -24,26 +24,26 @@ public enum EditStep<Value> {
 extension EditStep: CustomDebugStringConvertible {
     public var debugDescription: String {
         switch self {
-        case .Insert(let index, let value):
+        case .insert(let index, let value):
             return "Insert(\(index), \(value))"
-        case .Substitute(let index, let value):
+        case .substitute(let index, let value):
             return "Substitute(\(index), \(value))"
-        case .Delete(let index):
+        case .delete(let index):
             return "Delete(\(index))"
         }
     }
 }
 
-public func editSteps<T>(source: [T], _ destination: [T], compare: (T, T) -> Bool) -> [EditStep<T>] {
+public func editSteps<T>(_ source: [T], _ destination: [T], compare: (T, T) -> Bool) -> [EditStep<T>] {
 
     // Return all insertions if the source is empty.
     if source.isEmpty {
-        return destination.enumerate().map(EditStep.Insert)
+        return destination.enumerated().map(EditStep.insert)
     }
 
     // Return all deletions if the destination is empty.
     if destination.isEmpty {
-        return (0..<source.count).reverse().map(EditStep.Delete)
+        return (0..<source.count).reversed().map(EditStep.delete)
     }
 
     var matrix = Matrix<[EditStep<T>]>(
@@ -52,13 +52,13 @@ public func editSteps<T>(source: [T], _ destination: [T], compare: (T, T) -> Boo
         repeatedValue: [])
 
     for i in 1...source.count {
-        matrix[i, 0] = (0...i).map(EditStep.Delete)
+        matrix[i, 0] = (0...i).map(EditStep.delete)
     }
 
     for j in 1...destination.count {
         matrix[0, j] = (1...j).lazy.map({ $0 - 1 }).map({
             let destinationValue = destination[$0]
-            return EditStep.Insert(location: $0, value: destinationValue)
+            return EditStep.insert(location: $0, value: destinationValue)
         })
     }
 
@@ -69,9 +69,9 @@ public func editSteps<T>(source: [T], _ destination: [T], compare: (T, T) -> Boo
                 matrix[i, j] = matrix[i - 1, j - 1]
             }
             else {
-                let a = matrix[i - 1, j] + CollectionOfOne(.Delete(location: i - 1))
-                let b = matrix[i, j - 1] + CollectionOfOne(.Insert(location: j - 1, value: destinationValue))
-                let c = matrix[i - 1, j - 1] + CollectionOfOne(.Substitute(location: j - 1, value: destinationValue))
+                let a = matrix[i - 1, j] + CollectionOfOne(.delete(location: i - 1))
+                let b = matrix[i, j - 1] + CollectionOfOne(.insert(location: j - 1, value: destinationValue))
+                let c = matrix[i - 1, j - 1] + CollectionOfOne(.substitute(location: j - 1, value: destinationValue))
                 matrix[i, j] = shortest(a, b, c)
             }
         }
@@ -80,48 +80,48 @@ public func editSteps<T>(source: [T], _ destination: [T], compare: (T, T) -> Boo
     return matrix[source.count, destination.count]
 }
 
-public func editSteps<T: Equatable>(source: [T], _ destination: [T]) -> [EditStep<T>] {
+public func editSteps<T: Equatable>(_ source: [T], _ destination: [T]) -> [EditStep<T>] {
     return editSteps(source, destination, compare: ==)
 }
 
-public func editSteps(source: String, _ destination: String) -> [EditStep<Character>] {
+public func editSteps(_ source: String, _ destination: String) -> [EditStep<Character>] {
     return editSteps(Array(source.characters), Array(destination.characters))
 }
 
-public func editDistance<T>(source: [T], _ destination: [T], compare: (T, T) -> Bool) -> Int {
+public func editDistance<T>(_ source: [T], _ destination: [T], compare: (T, T) -> Bool) -> Int {
     return editSteps(source, destination, compare: compare).count
 }
 
-public func editDistance<T: Equatable>(source: [T], _ destination: [T]) -> Int {
+public func editDistance<T: Equatable>(_ source: [T], _ destination: [T]) -> Int {
     return editSteps(source, destination).count
 }
 
-public func editDistance(source: String, _ destination: String) -> Int {
+public func editDistance(_ source: String, _ destination: String) -> Int {
     return editSteps(source, destination).count
 }
 
-public func applyEditSteps<T>(source: [T], editSteps: [EditStep<T>]) -> [T]? {
+public func apply<T>(editSteps: [EditStep<T>], to source: [T]) -> [T]? {
     var destination = source
 
     for step in editSteps {
         switch step {
-        case .Insert(let location, let value):
+        case .insert(let location, let value):
             guard location <= destination.count else { return nil }
-            destination.insert(value, atIndex: location)
-        case .Delete(let location):
+            destination.insert(value, at: location)
+        case .delete(let location):
             guard location < destination.count else { return nil }
-            destination.removeAtIndex(location)
-        case .Substitute(let location, let value):
+            destination.remove(at: location)
+        case .substitute(let location, let value):
             guard location < destination.count else { return nil }
-            destination.removeAtIndex(location)
-            destination.insert(value, atIndex: location)
+            destination.remove(at: location)
+            destination.insert(value, at: location)
         }
     }
 
     return destination
 }
 
-public func applyEditSteps(source: String, editSteps: [EditStep<Character>]) -> String? {
-    guard let characters = applyEditSteps(Array(source.characters), editSteps: editSteps) else { return nil }
+public func apply(editSteps: [EditStep<Character>], to source: String) -> String? {
+    guard let characters = apply(editSteps: editSteps, to: Array(source.characters)) else { return nil }
     return String(characters)
 }

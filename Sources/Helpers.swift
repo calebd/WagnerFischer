@@ -17,7 +17,7 @@ struct Matrix<Element> {
     // MARK: - Initializers
 
     init(rows: Int, columns: Int, repeatedValue: Element) {
-        array = Array(count: rows, repeatedValue: Array(count: columns, repeatedValue: repeatedValue))
+        array = Array(repeating: Array(repeating: repeatedValue, count: columns), count: rows)
     }
 
 
@@ -34,8 +34,8 @@ struct Matrix<Element> {
 }
 
 /// Returns the array with the least elements.
-func shortest<T>(a: [T], _ b: [T], _ rest: [T]...) -> [T] {
-    return ([ b ] + rest).reduce(a, combine: {
+func shortest<T>(_ a: [T], _ b: [T], _ rest: [T]...) -> [T] {
+    return ([ b ] + rest).reduce(a, {
         $0.count < $1.count ? $0 : $1
     })
 }

@@ -6,7 +6,7 @@
 //  Copyright © 2016 Caleb Davenport. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 
 FOUNDATION_EXPORT double WagnerFischerVersionNumber;
 FOUNDATION_EXPORT const unsigned char WagnerFischerVersionString[];
